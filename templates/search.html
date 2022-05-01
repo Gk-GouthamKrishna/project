@@ -1,37 +1,104 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='adminpage/css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Book</title>
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='bookcss/bookstyle.css') }}">  
+  <style>
+    .error {
+      color: red;
+
+    }
+  </style>
 </head>
+
 <body>
-    <form action="{{url_for('search')}}" method="POSt">
-        <label for="search">Search</label>
-        <input type="date" name="date">
-    
 
-        <input type="submit" value="Search">
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        </button>
+      </div>
+      <div class="img bg-wrap text-center py-4" style="background-image: url(static\adminpage\images\bg_1.jpg);">
+        <div class="user-logo">
+          <div class="img" style="background-image: url(static/adminpage/images/admin.png);"></div>
+          <h3>ADMIN</h3>
+        </div>
+      </div>
+      <ul class="list-unstyled components mb-5">
+        
+        <li>
+          <a href="/add/"><span class="fa fa-book mr-3"></span>Add </a>
+        </li>
+        <li>
+          <a href="/face/"><span class="fa fa-child mr-3"></span>Face Mask Detection</a>
+        </li>
+        <li>
+          <a href="/human/"><span class="fa fa-user mr-3"></span>People Count</a>
+        </li>
+        <li>
+          <a href="/search/"><span class="fa fa-user mr-3"></span>Search</a>
+        </li>
+        
+      </ul>
 
-    </form>
-    <table>
+    </nav>
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+      <header>
+        <h1 class="heading"><center>Add People</center></h1><br>
+        <div id="form">
+            <form action="{{url_for('search')}}"class ="login-form"method="POSt">
+                
+                <input type="date" name="date">
+            
+        
+                <input type="submit" value="Search">
+        
+            </form>
+            <table>
+        
+                <tr>
+                    <th>Name</th>
+                    <th>Aadhar</th>
+                    <th>Phone</th>
+                </tr>
+        
+                {% for r in record %}
+                <tr>
+                    <td>{{ r[0] }}</td>
+                    <td>{{ r[1] }}</td>
+                    <td>{{ r[2] }}</td>
+                </tr>
+                {% endfor %}
+        
+            </table>
+            
+    </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 
-        <tr>
-            <th>Name</th>
-            <th>Aadhar</th>
-            <th>Phone</th>
-        </tr>
 
-        {% for r in record %}
-        <tr>
-            <td>{{ r[0] }}</td>
-            <td>{{ r[1] }}</td>
-            <td>{{ r[2] }}</td>
-        </tr>
-        {% endfor %}
-
-    </table>
-    
-</body>
+    <script src=" {{ url_for('static',filename='bookjs/bookscript.js') }}"></script> 
+  </body>
+  
 </html>
+
+
+
+
+</html>
+

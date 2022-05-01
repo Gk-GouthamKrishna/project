@@ -1,20 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{{url_for('login')}}" method="POSt">
-        <label for="username">Username</label>
-        <input type="text" name="username"><br>
-        <label for="password">Password</label>
-        <input type="password" name="password"><br>
-        <input type="submit" value="Login">
 
-    </form>
-    
-</body>
+<!DOCTYPE HTML>
+<html>
+	<head>
+        
+		<title>COVID PROTOCOL MONITORING SYSTEM</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login.css') }}" />
+		<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.ico') }}"/> 
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+		<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+		<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/util.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>COVID PROTOCOL MONITORING SYSTEM</strong> </a>
+					<nav id="nav">
+						
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+			<div class="limiter">
+				<div class="container-login100">
+					<div class="wrap-login100">
+						<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+							<span class="login100-form-title-1">
+								ADMIN 
+							</span>
+						</div>
+		
+						<form class="login100-form validate-form" method="post" action="{{url_for('login')}}">
+							<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+								<span class="label-input100">Username</span>
+								<input class="input100" type="text" name="username" placeholder="Enter username" required>
+								<span class="focus-input100"></span>
+							</div>
+		
+							<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+								<span class="label-input100">Password</span>
+								<input class="input100" type="password" name="password" placeholder="Enter password" required>
+								<span class="focus-input100"></span>
+							</div>
+		
+
+		
+							<div class="container-login100-form-btn">
+								<button class="login100-form-btn" type="submit" name="login_btn">
+									Login
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+
+            
+		<!-- Scripts -->
+			<script src="
+            {{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+			<script src=" {{ url_for('static',filename='assets/js/skel.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
+			<script src="
+            {{ url_for('static',filename='assets/js/main.js') }}"></script>
+			<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+			<script src="vendor/animsition/js/animsition.min.js"></script>
+			<script src="vendor/bootstrap/js/popper.js"></script>
+			<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+			<script src="vendor/select2/select2.min.js"></script>
+			<script src="vendor/daterangepicker/moment.min.js"></script>
+			<script src="vendor/daterangepicker/daterangepicker.js"></script>
+			<script src="vendor/countdowntime/countdowntime.js"></script>
+			<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+
+	</body>
 </html>
