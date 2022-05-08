@@ -6,32 +6,34 @@ import argparse
 HOGCV = cv2.HOGDescriptor()
 HOGCV.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 def detect(frame):
-    bounding_box_cordinates, weights =  HOGCV.detectMultiScale(frame, winStride = (4, 4), padding = (8, 8), scale = 1.03)
+   
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    box_cordinates, weights =  HOGCV.detectMultiScale(gray, winStride=(8, 8), padding=(8, 8), scale=1.05)
+    
     
     person = 1
-    for x,y,w,h in bounding_box_cordinates:
+    for x,y,w,h in box_cordinates:
         cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 2)
-        cv2.putText(frame, f'person {person}', (x,y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
+        cv2.putText(frame, f'person {person}', (x,y), cv2.FONT_ITALIC, 0.5, (0,0,255), 1)
         person += 1
     
-    cv2.putText(frame, 'Status : Detecting ', (40,40), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255,0,0), 2)
-    cv2.putText(frame, f'Total Persons : {person-1}', (40,70), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255,0,0), 2)
+   
+    cv2.putText(frame, f'Person in Room : {person-1}', (40,70), cv2.FONT_ITALIC, 0.8, (0,255,0), 2)
     cv2.imshow('output', frame)
 
     return frame
 
 
 
-def detectByCamera(writer):   
+def detectfromvideo():   
     video = cv2.VideoCapture(0)
-    print('Detecting people...')
+   
 
     while True:
         check, frame = video.read()
 
         frame = detect(frame)
-        if writer is not None:
-            writer.write(frame)
+        
 
         key = cv2.waitKey(1)
         if key == ord('q'):
@@ -39,10 +41,8 @@ def detectByCamera(writer):
 
     video.release()
     cv2.destroyAllWindows()
-writer = cv2.VideoWriter('filename.avi', 
-                         cv2.VideoWriter_fourcc(*'MJPG'),
-                         10, (600,600))
-detectByCamera(writer)
+
+detectfromvideo()
 
 
 

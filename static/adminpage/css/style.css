@@ -57,7 +57,9 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff;
+  background-image: url("c2.jpg");
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -8137,7 +8139,9 @@ body {
   line-height: 1.8;
   font-weight: normal;
   background: #fff;
-  color: gray; }
+  color: gray;
+ background-image: url("c2.jpg");
+}
 
 a {
   -webkit-transition: .3s all ease;
@@ -8178,7 +8182,7 @@ h1, h2, h3, h4, h5,
 #sidebar {
   min-width: 300px;
   max-width: 300px;
-  background: #32373d;
+  background: rgb(27, 26, 26);
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -8329,7 +8333,9 @@ a[data-toggle="collapse"] {
   min-height: 100vh;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  background-image: url("c2.jpg");  
+}
 
 .btn.btn-primary {
   background: #2f89fc;

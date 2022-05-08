@@ -15,7 +15,7 @@ app.secret_key="hello"
 @app.route('/face/')
 def face():
     os.system('python detect_mask_video.py')
-    return'<h1> Face mask detection<h1>'
+    return render_template('home.html',username=session['username'])
 
 @app.route('/human/')
 def human():
@@ -24,7 +24,7 @@ def human():
 
 
 
-    return'<h1> Human Count<h1>'
+    return render_template('home.html',username=session['username'])
 
 
 
@@ -54,7 +54,7 @@ def login():
     return render_template('login.html',msg=msg)
 
 
-@app.route('/logout')
+@app.route('/logout/')
 def logout():
      session.pop('loggedin',None)
      session.pop('username',None)
@@ -81,7 +81,7 @@ def adduser():
 
             cursor.execute(q,(name,aadhar,num,d))
             connection.commit()
-            return "<h1>Sucess</h1>"
+            return render_template('home.html',username=session['username'])
         
         
     

@@ -1562,7 +1562,7 @@
 	}
 
 	body {
-		background: #fff;
+		background: rgb(204, 31, 31);
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -2328,7 +2328,7 @@
 	}
 
 		.subpage #header {
-			background: #6cc091;
+			background: #0e0e0e;
 			top: 0;
 			height: 44px;
 			line-height: 44px;
@@ -2336,7 +2336,7 @@
 		}
 
 	#header {
-		color: #fff;
+		color: rgb(21, 21, 21);
 		cursor: default;
 		height: 3.25em;
 		left: 0;
@@ -2350,6 +2350,7 @@
 
 		#header .inner {
 			margin: 0 auto;
+			
 			position: relative;
 		}
 
@@ -2385,7 +2386,7 @@
 		}
 
 			#header a:hover {
-				color: #ffffff;
+				color: #0f0e0e;
 			}
 
 			#header a:last-child {
@@ -2470,7 +2471,7 @@
 		right: 0;
 		top: 0;
 		background: #6cc091;
-		color: #daefe3;
+		color: #dae4ef;
 		height: 100%;
 		max-width: 80%;
 		width: 20em;

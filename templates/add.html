@@ -21,6 +21,76 @@
 
     }
   </style>
+  <script>
+    function allLetter(uname)
+      { 
+        var letters = /^[A-Za-z]+$/;
+        if(uname.value.match(letters))
+          {
+            return true;
+          }
+        else
+          {
+            alert('Name must have alphabet characters only');
+            uname.focus();
+            return false; 
+         }
+      }
+    
+function allnumeric1(uzip)
+{ 
+var numbers = /^[0-9]+$/;
+if(uzip.value.match(numbers)&&uzip.value.length==10)
+{
+return true;
+}
+else
+{
+alert('Invalid no');
+uzip.focus();
+return false;
+}
+}
+function allnumeric2(uzip)
+{ 
+var numbers = /^[0-9]+$/;
+if(uzip.value.match(numbers)&&uzip.value.length==12)
+{
+return true;
+}
+else
+{
+alert('Invalid  AAdhar no');
+uzip.focus();
+return false;
+}
+}
+
+    function formValidation()
+    {
+      var uname = document.registration.name;
+      var aadhar =document.registration.aadhar;
+      var phone =document.registration.number;
+      if(!allLetter(uname))
+       {
+          return false;
+      }
+      else if(!allnumeric1(phone))
+      {
+          return false;
+      }
+      else if(!allnumeric2(aadhar))
+      {
+          return false;
+      }
+      else
+      return true;
+
+    
+    
+
+    }
+  </script>
 </head>
 
 <body>
@@ -51,6 +121,9 @@
         <li>
           <a href="/search/"><span class="fa fa-user mr-3"></span>Search</a>
         </li>
+        <li>
+          <a href="/logout/"><span class="fa fa-user mr-3"></span>Logout</a>
+        </li>
         
       </ul>
 
@@ -60,7 +133,7 @@
       <header>
         <h1 class="heading"><center>Add People</center></h1><br>
         <div id="form">
-          <form action="{{url_for('adduser')}}" class="regform" method="POSt">
+          <form name="registration" onsubmit=" return formValidation();" action="{{url_for('adduser')}}" class="regform" method="POSt">
             <input type="text" placeholder="Name as in Aadhar" name="name">
             <p class="error"></p>
             

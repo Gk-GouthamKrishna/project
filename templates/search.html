@@ -20,6 +20,47 @@
       color: red;
 
     }
+    table#kurosawa {
+	background-image:url(seven-samurai.jpg);
+	background-size: cover;
+	border-collapse: collapse;
+}
+table#kurosawa caption {
+	font-size: larger;
+	padding: 1em;
+}
+table#kurosawa td {
+	padding: .5em;
+}
+table#kurosawa thead tr {
+	background: #000;
+	color: #fff;
+}
+table#kurosawa tbody tr:nth-child(odd) { 
+	background: rgba(0,0,0,0.3);
+}
+table#kurosawa tbody tr:hover {
+	background: rgba(0,0,0,0.8);
+	color: #fff;
+	cursor: pointer;
+}
+table#kurosawa thead tr th a {
+	text-decoration: none;
+	color: #fff;
+	background: #000;
+	padding: .5em;
+	display: block;
+}
+table#kurosawa thead tr th a:hover {
+	background: #777;
+}
+table#kurosawa col:target {
+	background: rgba(255,0,0,0.5);
+	color: white;
+}
+table#kurosawa col:nth-child(odd) {
+	background: rgba(255,0,0,0.3);
+}
   </style>
 </head>
 
@@ -51,7 +92,9 @@
         <li>
           <a href="/search/"><span class="fa fa-user mr-3"></span>Search</a>
         </li>
-        
+        <li>
+          <a href="/logout/"><span class="fa fa-user mr-3"></span>Logout</a>
+        </li>
       </ul>
 
     </nav>
@@ -68,14 +111,15 @@
                 <input type="submit" value="Search">
         
             </form>
-            <table>
-        
+            <table id="kurosawa" >
+              <thead>
                 <tr>
                     <th>Name</th>
                     <th>Aadhar</th>
                     <th>Phone</th>
                 </tr>
-        
+                </thead>
+                <tbody>
                 {% for r in record %}
                 <tr>
                     <td>{{ r[0] }}</td>
@@ -83,7 +127,7 @@
                     <td>{{ r[2] }}</td>
                 </tr>
                 {% endfor %}
-        
+              </tbody>
             </table>
             
     </div>
