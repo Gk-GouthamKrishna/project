@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='adminpage/css/style.css') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Book</title>
+  <title>Add People</title>
 
   <link rel="stylesheet" href="{{ url_for('static',filename='bookcss/bookstyle.css') }}">  
   <style>
@@ -133,7 +133,7 @@ return false;
       <header>
         <h1 class="heading"><center>Add People</center></h1><br>
         <div id="form">
-          <form name="registration" onsubmit=" return formValidation();" action="{{url_for('adduser')}}" class="regform" method="POSt">
+          <form name="registration"  action="{{url_for('adduser')}}" class="regform" method="POSt">
             <input type="text" placeholder="Name as in Aadhar" name="name">
             <p class="error"></p>
             

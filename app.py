@@ -70,16 +70,21 @@ def add():
 
 @app.route('/adduser',methods=['GET','POST'])
 def adduser():
-    
+
     if request.method=='POST':
             name=request.form['name']
-            aadhar=request.form['aadhar']
-            num=request.form['number']
+            
+            aadhar=int(request.form['aadhar'])
+            print(aadhar)
+        
+            num=int(request.form['number'])
+         
             d=date.today().strftime("%y-%m-%d")
+            data=(name,aadhar,num,d)
 
             q='insert into people values(%s,%s,%s,%s)'
 
-            cursor.execute(q,(name,aadhar,num,d))
+            cursor.execute(q,data)
             connection.commit()
             return render_template('home.html',username=session['username'])
         
